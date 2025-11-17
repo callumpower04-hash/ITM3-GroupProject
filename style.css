@@ -992,3 +992,208 @@ footer {
                 justify-content: center;
             }
         }
+/* Video Comparison Page Styles */
+.comparison-section {
+    margin: 40px 0;
+}
+
+.comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.comparison-item {
+    background: rgba(17, 34, 64, 0.7);
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    transition: all 0.3s ease;
+}
+
+.comparison-item:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.comparison-label {
+    color: var(--accent);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid rgba(100, 255, 218, 0.3);
+    padding-bottom: 10px;
+}
+
+.video-container, .audio-container {
+    margin-bottom: 20px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.video-container video, .audio-container audio {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.video-controls, .audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.video-analysis, .audio-analysis {
+    background: rgba(100, 255, 218, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+    border-left: 3px solid var(--accent);
+}
+
+.video-analysis h4, .audio-analysis h4 {
+    color: var(--accent);
+    margin-bottom: 15px;
+}
+
+.video-analysis ul, .audio-analysis ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.video-analysis li, .audio-analysis li {
+    margin-bottom: 8px;
+    font-size: 1rem;
+}
+
+/* Checklist Section */
+.checklist-section {
+    margin: 40px 0;
+}
+
+.checklist-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-bottom: 40px;
+}
+
+.checklist-category {
+    background: rgba(17, 34, 64, 0.7);
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+}
+
+.checklist-category h3 {
+    color: var(--accent);
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(100, 255, 218, 0.3);
+    padding-bottom: 10px;
+}
+
+.checklist-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background 0.3s ease;
+}
+
+.checklist-item:hover {
+    background: rgba(100, 255, 218, 0.05);
+}
+
+.checklist-item input {
+    margin-right: 15px;
+    transform: scale(1.2);
+}
+
+.checklist-item label {
+    cursor: pointer;
+    font-size: 1rem;
+    color: var(--text-light);
+}
+
+.checklist-results {
+    background: rgba(17, 34, 64, 0.7);
+    border-radius: 12px;
+    padding: 25px;
+    border: 1px solid rgba(100, 255, 218, 0.1);
+    text-align: center;
+}
+
+.checklist-results h3 {
+    color: var(--accent);
+    margin-bottom: 20px;
+}
+
+.results-container {
+    margin-bottom: 25px;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 10px 15px;
+    background: rgba(100, 255, 218, 0.05);
+    border-radius: 6px;
+}
+
+.result-label {
+    font-weight: 600;
+    color: var(--text);
+}
+
+.result-value {
+    font-weight: 700;
+    color: var(--accent);
+}
+
+.result-conclusion {
+    margin-top: 20px;
+    padding: 15px;
+    border-radius: 6px;
+    background: rgba(100, 255, 218, 0.05);
+}
+
+.result-conclusion p {
+    margin: 0;
+    font-weight: 600;
+}
+
+.calculate-btn {
+    background: linear-gradient(to right, var(--accent), #1abc9c);
+    color: var(--primary);
+    border: none;
+}
+
+.calculate-btn:hover {
+    background: linear-gradient(to right, #1abc9c, var(--accent));
+}
+
+/* Responsive Styles for Comparison Page */
+@media (max-width: 992px) {
+    .comparison-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .checklist-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .video-controls, .audio-controls {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .control-btn {
+        width: 100%;
+        max-width: 200px;
+    }
+}
