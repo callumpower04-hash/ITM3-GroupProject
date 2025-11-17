@@ -6,398 +6,6 @@
     <title>Training | CyberShield Security</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #1a2a6c, #4a6491);
-            color: #333;
-            line-height: 1.6;
-            padding: 20px;
-            min-height: 100vh;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .training-card {
-            background-color: rgb(255, 255, 255);
-            border-radius: 20px;
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
-            margin-bottom: 30px;
-        }
-        
-        .header {
-            background: linear-gradient(to right, #2c3e50, #4a6491);
-            color: white;
-            padding: 30px;
-            text-align: center;
-        }
-        
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .subtitle {
-            font-size: 1.3rem;
-            opacity: 0.9;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .training-icon {
-            font-size: 4rem;
-            margin: 20px 0;
-        }
-        
-        .progress-container {
-            background-color: #ecf0f1;
-            height: 10px;
-            border-radius: 5px;
-            margin: 20px 0;
-            overflow: hidden;
-        }
-        
-        .progress-bar {
-            height: 100%;
-            background: linear-gradient(to right, #2ecc71, #1abc9c);
-            width: 33%;
-            border-radius: 5px;
-            transition: width 0.5s ease;
-        }
-        
-        .content {
-            padding: 40px;
-        }
-        
-        .module {
-            margin-bottom: 50px;
-            padding-bottom: 30px;
-            border-bottom: 1px solid #e9ecef;
-        }
-        
-        h2 {
-            color: #2c3e50;
-            margin: 25px 0 15px;
-            font-size: 1.8rem;
-            display: flex;
-            align-items: center;
-        }
-        
-        .module-icon {
-            margin-right: 15px;
-            font-size: 1.8rem;
-        }
-        
-        h3 {
-            color: #34495e;
-            margin: 20px 0 10px;
-            font-size: 1.4rem;
-        }
-        
-        p {
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-        
-        ul {
-            margin: 15px 0 25px 30px;
-        }
-        
-        li {
-            margin-bottom: 12px;
-            font-size: 1.1rem;
-        }
-        
-        .highlight {
-            background-color: #e6eaff;
-            padding: 3px 6px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-        
-        .warning {
-            background-color: #f4eaff;
-            padding: 3px 6px;
-            border-radius: 4px;
-            font-weight: 600;
-            color: #c0392b;
-        }
-        
-        .interactive-section {
-            background-color: #f8f8fa;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px 0;
-            border-left: 5px solid #3498db;
-        }
-        
-        .video-container {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto 25px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        
-        video {
-            width: 100%;
-            display: block;
-            background-color: #000;
-        }
-        
-        .video-controls {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        
-        .control-btn {
-            padding: 12px 25px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-        }
-        
-        .play-btn {
-            background: linear-gradient(to right, #2ecc71, #1abc9c);
-            color: white;
-        }
-        
-        .pause-btn {
-            background: linear-gradient(to right, #e74c3c, #e67e22);
-            color: white;
-        }
-        
-        .control-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
-        }
-        
-        .quiz-section {
-            background-color: #ebe8f8;
-            border-radius: 12px;
-            padding: 25px;
-            margin: 30px 0;
-        }
-        
-        .quiz-question {
-            margin-bottom: 20px;
-            font-weight: 600;
-            font-size: 1.2rem;
-        }
-        
-        .quiz-options {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-        
-        .quiz-option {
-            padding: 15px;
-            background-color: rgb(255, 255, 255);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border: 2px solid #e9ecef;
-        }
-        
-        .quiz-option:hover {
-            border-color: #3498db;
-            background-color: #f0f8ff;
-        }
-        
-        .quiz-option.selected {
-            border-color: #2ecc71;
-            background-color: #e8f8f5;
-        }
-        
-        .quiz-feedback {
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 20px;
-            display: none;
-        }
-        
-        .correct {
-            background-color: #e8f8f5;
-            border: 2px solid #2ecc71;
-            color: #27ae60;
-        }
-        
-        .incorrect {
-            background-color: #ffeaea;
-            border: 2px solid #e74c3c;
-            color: #c0392b;
-        }
-        
-        .tips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-            margin: 30px 0;
-        }
-        
-        .tip-card {
-            background-color: #f9f8fa;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border-top: 4px solid #3498db;
-            transition: transform 0.3s ease;
-        }
-        
-        .tip-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .tip-card h3 {
-            color: #2980b9;
-            display: flex;
-            align-items: center;
-        }
-        
-        .tip-icon {
-            margin-right: 10px;
-            font-size: 1.5rem;
-        }
-        
-        .actions {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 40px;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        
-        .btn {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 50px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .prev-btn {
-            background: linear-gradient(to right, #95a5a6, #7f8c8d);
-            color: white;
-        }
-        
-        .next-btn {
-            background: linear-gradient(to right, #3498db, #2980b9);
-            color: white;
-        }
-        
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .btn:disabled {
-            background: #bdc3c7;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-        
-        .btn-icon {
-            margin-right: 10px;
-            font-size: 1.2rem;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 25px;
-            color: #ecf0f1;
-            font-size: 1rem;
-            margin-top: 30px;
-        }
-
-        .tip-card {
-    background-color: #f9f8fa;
-    border-radius: 12px;
-    padding: 25px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-    border-top: 4px solid #3498db;
-    transition: transform 0.3s ease;
-    color: black; /* Add this line */
-}
-
-.quiz-option {
-    padding: 15px;
-    background-color: rgb(255, 255, 255);
-    border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border: 2px solid #e9ecef;
-    color: black; /* Add this line */
-}
-
-.interactive-section {
-    background-color: #f8f8fa;
-    border-radius: 12px;
-    padding: 25px;
-    margin: 30px 0;
-    border-left: 5px solid #3498db;
-    color: black; /* Add this line */
-}
-
-.quiz-section {
-    background-color: #ebe8f8;
-    border-radius: 12px;
-    padding: 25px;
-    margin: 30px 0;
-    color: black; /* Add this line */
-}
-        
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 2.2rem;
-            }
-            
-            .content {
-                padding: 25px;
-            }
-            
-            .tips-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .actions {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .btn {
-                width: 100%;
-                max-width: 300px;
-            }
-        }
-    </style>
 </head>
 <body>
     <!-- Header -->
@@ -418,296 +26,134 @@
         </div>
     </header>
 
-   <div class="container">
-        <div class="training-card">
-            <div class="header">
-                <div class="training-icon">🔍</div>
-                <h1>Deepfake Detection Training</h1>
-                <p class="subtitle">Learn to identify AI-generated videos and protect yourself from digital manipulation</p>
-            
-            <div class="content">
-                <div class="module">
-                    <h2><span class="module-icon">🎯</span> Training Objectives</h2>
-                    <p>By the end of this training, you will be able to:</p>
-                    <ul>
-                        <li>Identify common visual indicators of deepfake videos</li>
-                        <li>Recognize audio inconsistencies in manipulated media</li>
-                        <li>Evaluate contextual clues that suggest digital manipulation</li>
-                        <li>Apply critical thinking when encountering suspicious content</li>
-                        <li>Protect yourself from deepfake-based scams and misinformation</li>
-                    </ul>
-                </div>
-                
-                <div class="module">
-                    <h2><span class="module-icon">👁️</span> Visual Analysis Techniques</h2>
-                    <p>Deepfakes often contain subtle visual artifacts that can reveal their artificial nature. Look for these indicators:</p>
-                    
-                    <div class="tips-grid">
-                        <div class="tip-card">
-                            <h3><span class="tip-icon">😐</span> Facial Inconsistencies</h3>
-                            <ul>
-                                <li>Unnatural or limited blinking</li>
-                                <li>Eyes that don't properly focus</li>
-                                <li>Mismatched skin tones</li>
-                                <li>Strange shadows on the face</li>
-                                <li>Blurring around edges of the face</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="tip-card">
-                            <h3><span class="tip-icon">👄</span> Lip Sync Issues</h3>
-                            <ul>
-                                <li>Mouth movements don't match audio</li>
-                                <li>Unnatural mouth shapes</li>
-                                <li>Teeth that look artificial</li>
-                                <li>Lack of tongue movement</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="tip-card">
-                            <h3><span class="tip-icon">💡</span> Lighting Problems</h3>
-                            <ul>
-                                <li>Inconsistent lighting on face vs. background</li>
-                                <li>Shadows that don't match light sources</li>
-                                <li>Reflections in eyes that seem off</li>
-                                <li>Unnatural highlights on skin</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    
-                
-                <div class="module">
-                    <h2><span class="module-icon">🔊</span> Audio Analysis</h2>
-                    <p>Audio manipulation is often harder to perfect than video. Listen for these clues:</p>
-                    
-                    <div class="tips-grid">
-                        <div class="tip-card">
-                            <h3><span class="tip-icon">🗣️</span> Voice Quality</h3>
-                            <ul>
-                                <li>Robotic or synthetic sounding voice</li>
-                                <li>Inconsistent tone or pitch</li>
-                                <li>Unnatural pauses or pacing</li>
-                                <li>Lack of emotional inflection</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="tip-card">
-                            <h3><span class="tip-icon">🎚️</span> Audio Artifacts</h3>
-                            <ul>
-                                <li>Background noise that doesn't match setting</li>
-                                <li>Sudden changes in audio quality</li>
-                                <li>Lip movements not matching words</li>
-                                <li>Echo or reverb that seems artificial</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="module">
-                    <h2><span class="module-icon">🧠</span> Contextual Evaluation</h2>
-                    <p>Sometimes the content itself reveals manipulation. Consider these factors:</p>
-                    
-                    <div class="tips-grid">
-                        <div class="tip-card">
-                            <h3><span class="tip-icon">🚩</span> Red Flags</h3>
-                            <ul>
-                                <li><span class="warning">Requests for money or sensitive information</span></li>
-                                <li>Content that seems out of character</li>
-                                <li>Claims that contradict known facts</li>
-                                <li>Only available on suspicious platforms</li>
-                            </ul>
-                        </div>
-                        
-                        <div class="tip-card">
-                            <h3><span class="tip-icon">🔎</span> Verification Steps</h3>
-                            <ul>
-                                <li>Check official sources for confirmation</li>
-                                <li>Look for the same content on reputable sites</li>
-                                <li>Reverse image/video search</li>
-                                <li>Use fact-checking websites</li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <div class="interactive-section">
-                        <h3>Important Note</h3>
-                        <p><span class="highlight">Legitimate educators, executives, and public figures will never ask for credit card information, cryptocurrency, or wire transfers in videos.</span> If you encounter such requests, it's almost certainly a deepfake scam.</p>
-                    </div>
-                </div>
-                
-                <div class="quiz-section">
-                    <h2><span class="module-icon">📝</span> Knowledge Check</h2>
-                    <p>Test your understanding with this quick quiz:</p>
-                    
-                    <div class="quiz-question">1. Which of the following is a strong indicator of a deepfake video?</div>
-                    <div class="quiz-options">
-                        <div class="quiz-option" data-correct="false">The person is wearing blue clothing</div>
-                        <div class="quiz-option" data-correct="true">Unnatural eye movements and limited blinking</div>
-                        <div class="quiz-option" data-correct="false">The video is in high definition</div>
-                        <div class="quiz-option" data-correct="false">The person is speaking clearly</div>
-                    </div>
-                    
-                    <div class="quiz-question">2. A CEO appears in a video asking employees to send gift cards to a specific email address. What should you do?</div>
-                    <div class="quiz-options">
-                        <div class="quiz-option" data-correct="false">Immediately follow the instructions</div>
-                        <div class="quiz-option" data-correct="false">Share the video with colleagues</div>
-                        <div class="quiz-option" data-correct="true">Verify the request through official channels</div>
-                        <div class="quiz-option" data-correct="false">Assume it's a legitimate emergency</div>
-                    </div>
-                    
-                    <div class="quiz-feedback" id="quizFeedback"></div>
-                    
-                    <button class="btn check-btn" id="checkQuiz" style="background: linear-gradient(to right, #9b59b6, #8e44ad); color: white;">
-                        <span class="btn-icon">✓</span> Check Answers
-                    </button>
-                    <div class="container">
-            <h1>Video Authenticity Checker</h1>
-            <p class="subtitle">Watch the video and classify it as either Real or Deepfake</p>
-
-        <section class="video-section">
-            <div class="video-container">
-                <video id="videoPlayer">
-                    <source src="deep.mp4">
-                </video>
-                <button class="control-btn play-btn" id="playBtn">Play</button>
-                <button class="control-btn pause-btn" id="pauseBtn">Pause</button>
-            </div>
-        </section>
-        
-        <section class="classification-section">
-            <h2>What do you think about this video?</h2>
-            <div class="buttons-container">
-                <a href="right.html" class="btn btn-filled">Deep fake</a>
-                <a href="wrong.html" class="btn btn-filled">Real video</a>
-            </div>
-            
-        </section>
-            </div>
-        </div>
-        
-        <footer>
-            <p>Deepfake Detection Training &copy; 2023 | Your awareness helps combat digital misinformation</p>
-        </footer>
-    </div>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const videoPlayer = document.getElementById('trainingVideo');
-            const playBtn = document.getElementById('playBtn');
-            const pauseBtn = document.getElementById('pauseBtn');
-            const quizOptions = document.querySelectorAll('.quiz-option');
-            const checkQuizBtn = document.getElementById('checkQuiz');
-            const quizFeedback = document.getElementById('quizFeedback');
-            const prevModuleBtn = document.getElementById('prevModule');
-            const nextModuleBtn = document.getElementById('nextModule');
-            const progressBar = document.getElementById('progressBar');
-            
-            let selectedOptions = [];
-            
-            // Play/Pause functionality
-            playBtn.addEventListener('click', function() {
-                videoPlayer.play();
-            });
-            
-            pauseBtn.addEventListener('click', function() {
-                videoPlayer.pause();
-            });
-            
-            // Quiz functionality
-            quizOptions.forEach(option => {
-                option.addEventListener('click', function() {
-                    // For single selection per question (simplified)
-                    const questionOptions = this.parentElement.querySelectorAll('.quiz-option');
-                    questionOptions.forEach(opt => opt.classList.remove('selected'));
-                    
-                    this.classList.add('selected');
-                });
-            });
-            
-            checkQuizBtn.addEventListener('click', function() {
-                const selected = document.querySelectorAll('.quiz-option.selected');
-                let correctCount = 0;
-                
-                selected.forEach(option => {
-                    if (option.getAttribute('data-correct') === 'true') {
-                        correctCount++;
-                    }
-                });
-                
-                if (selected.length < 2) {
-                    quizFeedback.textContent = "Please answer all questions before checking.";
-                    quizFeedback.className = "quiz-feedback incorrect";
-                    quizFeedback.style.display = 'block';
-                    return;
-                }
-                
-                if (correctCount === 2) {
-                    quizFeedback.innerHTML = "✅ Excellent! You've correctly identified key deepfake indicators. Remember these clues when evaluating videos in the future.";
-                    quizFeedback.className = "quiz-feedback correct";
-                } else {
-                    quizFeedback.innerHTML = "❌ Not quite right. Review the training materials and try again. Pay special attention to visual inconsistencies and contextual red flags.";
-                    quizFeedback.className = "quiz-feedback incorrect";
-                }
-                
-                quizFeedback.style.display = 'block';
-            });
-            
-            // Module navigation
-            nextModuleBtn.addEventListener('click', function() {
-                alert('Moving to next module: Audio Analysis Techniques');
-                progressBar.style.width = '66%';
-            });
-            
-            prevModuleBtn.addEventListener('click', function() {
-                alert('Moving to previous module');
-            });
-        });
-        document.addEventListener('DOMContentLoaded', function() {
-    // Fix: Change 'trainingVideo' to 'videoPlayer'
-    const videoPlayer = document.getElementById('videoPlayer');
-    const playBtn = document.getElementById('playBtn');
-    const pauseBtn = document.getElementById('pauseBtn');
-    
-    // Play/Pause functionality
-    playBtn.addEventListener('click', function() {
-        videoPlayer.play();
-    });
-    
-    pauseBtn.addEventListener('click', function() {
-        videoPlayer.pause();
-    });
-    
-    // ... rest of your JavaScript code
-});
-    </script>
-
-    <!-- Footer -->
-    <footer>
+    <div class="page-content">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Social Defenders</h3>
-                    <p>Protecting digital communities and promoting online safety.</p>
+            <div class="training-card">
+                <div class="training-header">
+                    <div class="training-icon">🔍</div>
+                    <h1>Deepfake Detection Training</h1>
+                    <p class="training-subtitle">Learn to identify AI-generated videos and protect yourself from digital manipulation</p>
+                    
+                    <div class="progress-container">
+                        <div class="progress-bar" id="progressBar"></div>
+                    </div>
                 </div>
-                <div class="footer-section">
-                    <h4>Quick Links</h4>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h4>Contact Info</h4>
-                    <p>📞 087 123 1234</p>
-                    <p>✉️ social.defenders@mtu.ie</p>
-                    <p>📍 MTU, Cork, Ireland</p>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2023 Social Defenders. All rights reserved.</p>
-            </div>
-        </div>
-    </footer>
+                
+                <div class="training-content">
+                    <div class="module">
+                        <h2><span class="module-icon">🎯</span> Training Objectives</h2>
+                        <p>By the end of this training, you will be able to:</p>
+                        <ul>
+                            <li>Identify common visual indicators of deepfake videos</li>
+                            <li>Recognize audio inconsistencies in manipulated media</li>
+                            <li>Evaluate contextual clues that suggest digital manipulation</li>
+                            <li>Apply critical thinking when encountering suspicious content</li>
+                            <li>Protect yourself from deepfake-based scams and misinformation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="module">
+                        <h2><span class="module-icon">👁️</span> Visual Analysis Techniques</h2>
+                        <p>Deepfakes often contain subtle visual artifacts that can reveal their artificial nature. Look for these indicators:</p>
+                        
+                        <div class="tips-grid">
+                            <div class="tip-card">
+                                <h3><span class="tip-icon">😐</span> Facial Inconsistencies</h3>
+                                <ul>
+                                    <li>Unnatural or limited blinking</li>
+                                    <li>Eyes that don't properly focus</li>
+                                    <li>Mismatched skin tones</li>
+                                    <li>Strange shadows on the face</li>
+                                    <li>Blurring around edges of the face</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tip-card">
+                                <h3><span class="tip-icon">👄</span> Lip Sync Issues</h3>
+                                <ul>
+                                    <li>Mouth movements don't match audio</li>
+                                    <li>Unnatural mouth shapes</li>
+                                    <li>Teeth that look artificial</li>
+                                    <li>Lack of tongue movement</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tip-card">
+                                <h3><span class="tip-icon">💡</span> Lighting Problems</h3>
+                                <ul>
+                                    <li>Inconsistent lighting on face vs. background</li>
+                                    <li>Shadows that don't match light sources</li>
+                                    <li>Reflections in eyes that seem off</li>
+                                    <li>Unnatural highlights on skin</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="module">
+                        <h2><span class="module-icon">🔊</span> Audio Analysis</h2>
+                        <p>Audio manipulation is often harder to perfect than video. Listen for these clues:</p>
+                        
+                        <div class="tips-grid">
+                            <div class="tip-card">
+                                <h3><span class="tip-icon">🗣️</span> Voice Quality</h3>
+                                <ul>
+                                    <li>Robotic or synthetic sounding voice</li>
+                                    <li>Inconsistent tone or pitch</li>
+                                    <li>Unnatural pauses or pacing</li>
+                                    <li>Lack of emotional inflection</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tip-card">
+                                <h3><span class="tip-icon">🎚️</span> Audio Artifacts</h3>
+                                <ul>
+                                    <li>Background noise that doesn't match setting</li>
+                                    <li>Sudden changes in audio quality</li>
+                                    <li>Lip movements not matching words</li>
+                                    <li>Echo or reverb that seems artificial</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="module">
+                        <h2><span class="module-icon">🧠</span> Contextual Evaluation</h2>
+                        <p>Sometimes the content itself reveals manipulation. Consider these factors:</p>
+                        
+                        <div class="tips-grid">
+                            <div class="tip-card">
+                                <h3><span class="tip-icon">🚩</span> Red Flags</h3>
+                                <ul>
+                                    <li><span class="warning">Requests for money or sensitive information</span></li>
+                                    <li>Content that seems out of character</li>
+                                    <li>Claims that contradict known facts</li>
+                                    <li>Only available on suspicious platforms</li>
+                                </ul>
+                            </div>
+                            
+                            <div class="tip-card">
+                                <h3><span class="tip-icon">🔎</span> Verification Steps</h3>
+                                <ul>
+                                    <li>Check official sources for confirmation</li>
+                                    <li>Look for the same content on reputable sites</li>
+                                    <li>Reverse image/video search</li>
+                                    <li>Use fact-checking websites</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="interactive-section">
+                            <h3>Important Note</h3>
+                            <p><span class="highlight">Legitimate educators, executives, and public figures will never ask for credit card information, cryptocurrency, or wire transfers in videos.</span> If you encounter such requests, it's almost certainly a deepfake scam.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-section">
+                        <h2><span class="module-icon">📝</span> Knowledge Check</h2>
+                        <p>Test your understanding with this quick quiz:</p>
+                        <a href="training-section.html" class="btn-test">
+                        <i class="fas fa-play-circle"></i>
+                        Start Test
+                        </a>
+                        <div class="quiz-question">
