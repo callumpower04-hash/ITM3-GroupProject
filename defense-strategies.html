@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Defense Strategies | Social Defenders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles for training pages */
+        .training-hero {
+            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9));
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            padding: 40px 0;
+        }
+        
+        .hero-split-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .hero-left {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-right {
+            text-align: left;
+        }
+        
+        .hero-right h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--accent);
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .btn-large {
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            border-radius: 8px;
+        }
+        
+        .btn-large i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .training-content {
+            padding: 80px 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .content-card {
+            background: rgba(17, 34, 64, 0.7);
+            padding: 30px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+        
+        .content-card h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .defense-tip {
+            background: rgba(100, 255, 218, 0.05);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .warning-sign {
+            background: rgba(231, 76, 60, 0.1);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+            border-left: 3px solid #e74c3c;
+        }
+        
+        .warning-sign h4 {
+            color: #e74c3c;
+            margin-bottom: 8px;
+        }
+        
+        .content-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin: 15px 0;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .image-caption {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .checklist li {
+            padding: 8px 0;
+            padding-left: 30px;
+            position: relative;
+        }
+        
+        .checklist li:before {
+            content: "✓";
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .training-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        .defense-section {
+            margin-bottom: 50px;
+        }
+        
+        .defense-section h2 {
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-split-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+            
+            .hero-right h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .btn-large {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .training-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-btn {
+                text-align: center;
+                justify-content: center;
+            }
+            
+            .content-image {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Social<span>Defenders</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Training Hero Section -->
+    <section class="training-hero">
+        <div class="container">
+            <div class="hero-split-layout">
+                <div class="hero-left">
+                    <a href="#content" class="btn btn-large btn-filled">
+                        <i class="fas fa-user-shield"></i>
+                        Protect Yourself
+                    </a>
+                </div>
+                <div class="hero-right">
+                    <h1>Defense Strategies</h1>
+                    <p class="hero-subtitle">Learn how to spot and protect against social engineering attacks</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Content Section -->
+    <section class="training-content" id="content">
+        <div class="container">
+            <h2 class="section-title">How to Spot and Defend Against Social Engineering</h2>
+            <p class="section-subtitle">Practical strategies to recognize and prevent manipulation attempts</p>
+            
+            <div class="defense-section">
+                <h2>Defending Against Phishing Attacks</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>Email Red Flags</h3>
+                        <div class="warning-sign">
+                            <h4>Warning Signs:</h4>
+                            <ul class="checklist">
+                                <li>Generic greetings like "Dear Customer"</li>
+                                <li>Urgent action required messages</li>
+                                <li>Suspicious sender email addresses</li>
+                                <li>Poor grammar and spelling errors</li>
+                                <li>Unexpected attachments or links</li>
+                            </ul>
+                        </div>
+                        <div class="defense-tip">
+                            <strong>Pro Tip:</strong> Always hover over links to see the actual URL before clicking. Legitimate companies use their official domains.
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Spear Phishing Defense</h3>
+                        <div class="warning-sign">
+                            <h4>Personalized Attack Indicators:</h4>
+                            <ul class="checklist">
+                                <li>Messages referencing specific projects or colleagues</li>
+                                <li>Requests for sensitive information via email</li>
+                                <li>Unusual payment or transfer requests</li>
+                                <li>Messages that seem "too perfect"</li>
+                            </ul>
+                        </div>
+                        <div class="defense-tip">
+                            <strong>Verification Protocol:</strong> Always verify unusual requests through a secondary communication channel (phone call, in-person).
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Whaling Protection</h3>
+                        <div class="warning-sign">
+                            <h4>Executive Targeting Signs:</h4>
+                            <ul class="checklist">
+                                <li>Requests bypassing normal procedures</li>
+                                <li>Urgent financial transactions</li>
+                                <li>Confidential data requests via email</li>
+                                <li>Impersonation of other executives</li>
+                            </ul>
+                        </div>
+                        <div class="defense-tip">
+                            <strong>Executive Protection:</strong> Implement multi-person approval for sensitive transactions and data access.
+                        </div>
+                    </div>
+                </div>
+                
+                <img src="https://images.unsplash.com/photo-1563013546-7eab76c7af73?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1000" alt="Phishing Defense" class="content-image" style="height: 300px; width: 100%;">
+                <p class="image-caption">Vigilance and verification are key to preventing phishing attacks</p>
+            </div>
+            
+            <div class="defense-section">
+                <h2>Protecting Against Baiting</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>Physical Baiting Defense</h3>
+                        <div class="warning-sign">
+                            <h4>Physical Trap Indicators:</h4>
+                            <ul class="checklist">
+                                <li>Unattended USB drives in public areas</li>
+                                <li>Free software or hardware offers</li>
+                                <li>Unexpected prize notifications</li>
+                                <li>Too-good-to-be-true offers</li>
+                            </ul>
+                        </div>
+                        <div class="defense-tip">
+                            <strong>Physical Security:</strong> Never use unknown USB devices. Report found devices to IT security.
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Digital Baiting Protection</h3>
+                        <div class="warning-sign">
+                            <h4>Online Trap Signs:</h4>
+                            <ul class="checklist">
+                                <li>Free software downloads from unofficial sources</li>
+                                <li>"Exclusive" content requiring personal information</li>
+                                <li>Unexpected prize or reward notifications</li>
+                                <li>Requests to disable security software</li>
+                            </ul>
+                        </div>
+                        <div class="defense-tip">
+                            <strong>Download Safety:</strong> Only download software from official sources and verified websites.
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Psychological Awareness</h3>
+                        <div class="warning-sign">
+                            <h4>Emotional Manipulation Tactics:</h4>
+                            <ul class="checklist">
+                                <li>Exploiting curiosity or FOMO (Fear Of Missing Out)</li>
+                                <li>Leveraging greed or desire for rewards</li>
+                                <li>Creating artificial scarcity</li>
+                                <li>Playing on helpfulness or desire to assist</li>
+                            </ul>
+                        </div>
+                        <div class="defense-tip">
+                            <strong>Mindful Response:</strong> Pause and question offers that trigger strong emotional responses.
+                        </div>
+                    </div>
+                </div>
+                
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1000" alt="Baiting Defense" class="content-image" style="height: 300px; width: 100%;">
+                <p class="image-caption">Question offers that seem too good to be true - they usually are</p>
+            </div>
+            
+            <div class="defense-section">
+                <h2>Countering Pretexting Attacks</h2>
+                <div class="content-grid">
+                    <div class="content-card">
+                        <h3>Identity Verification</h3>
+                        <div class="warning-sign">
+                            <h4>Impersonation Red Flags:</h4>
+                            <ul class="checklist">
+                                <li>Caller refuses to provide verification</li>
+                                <li>Urgent requests bypassing normal channels</li>
+                                <li>Inconsistencies in their story</li>
+                                <li>Pressure to act immediately</li>
+                            </ul>
+                        </div>
+                        <div class="defense-tip">
+                            <strong>Verification Process:</strong> Always call back using official company numbers, not numbers provided by the caller.
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Information Control</h3>
+                        <div class="warning-sign">
+                            <h4>Information Fishing Signs:</h4>
+                            <ul class="checklist">
+                                <li>Requests for unnecessary personal information</li>
+                                <li>Questions about security procedures</li>
+                                <li>Attempts to confirm employee details</li>
+                                <li>Fishing for organizational structure</li>
+                            </ul>
+                        </div>
+                        <div class="defense-tip">
+                            <strong>Information Policy:</strong> Follow company data sharing policies. When in doubt, don't give it out.
+                        </div>
+                    </div>
+                    
+                    <div class="content-card">
+                        <h3>Scenario Awareness</h3>
+                        <div class="warning-sign">
+                            <h4>Fabricated Scenario Indicators:</h4>
+                            <ul class="checklist">
+                                <li>Overly detailed but irrelevant backstories</li>
+                                <li>Playing on sympathy or urgency</li>
+                                <li>References to non-existent policies</li>
+                                <li>Inconsistent technical knowledge</li>
+                            </ul>
+                        </div>
+                        <div class="defense-tip">
+                            <strong>Scenario Testing:</strong> Ask detailed questions about their claimed role or situation to test authenticity.
+                        </div>
+                    </div>
+                </div>
+                
+                <img src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1000" alt="Pretexting Defense" class="content-image" style="height: 300px; width: 100%;">
+                <p class="image-caption">Always verify identities and question unusual scenarios</p>
+            </div>
+            
+            <div class="content-card" style="grid-column: 1 / -1; text-align: center;">
+                <h3>General Defense Principles</h3>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div class="defense-tip">
+                        <h4>Verify Then Trust</h4>
+                        <p>Always verify requests through official channels before taking action</p>
+                    </div>
+                    <div class="defense-tip">
+                        <h4>Question Urgency</h4>
+                        <p>Legitimate matters rarely require immediate, irreversible action</p>
+                    </div>
+                    <div class="defense-tip">
+                        <h4>Protect Information</h4>
+                        <p>Share sensitive information only through secure, verified methods</p>
+                    </div>
+                    <div class="defense-tip">
+                        <h4>Report Suspicious Activity</h4>
+                        <p>Always report potential social engineering attempts to your security team</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="training-nav">
+                <a href="common-attacks.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> Previous: Common Attacks
+                </a>
+                <a href="training-section.html" class="nav-btn">
+                    Next: Knowledge Test <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Social Defenders</h3>
+                    <p>Advanced cybersecurity solutions for modern businesses.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> MTU, Cork, Ireland</li>
+                        <li><i class="fas fa-phone"></i> 087 123 1234</li>
+                        <li><i class="fas fa-envelope"></i> Social.defenders@mtu.ie</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Social Defenders Security. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        });
+    </script>
+</body>
+</html>

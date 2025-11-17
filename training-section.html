@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Tests | Social Defenders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles for training pages */
+        .training-hero {
+            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9));
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            padding: 40px 0;
+        }
+        
+        .hero-split-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .hero-left {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-right {
+            text-align: left;
+        }
+        
+        .hero-right h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--accent);
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .btn-large {
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            border-radius: 8px;
+        }
+        
+        .btn-large i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .training-content {
+            padding: 80px 0;
+        }
+        
+        .tests-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin: 60px 0;
+        }
+        
+        .test-card {
+            background: rgba(17, 34, 64, 0.7);
+            padding: 40px 30px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            min-height: 400px;
+        }
+        
+        .test-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.1);
+        }
+        
+        .test-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(100, 255, 218, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            border: 2px solid var(--accent);
+        }
+        
+        .test-icon i {
+            font-size: 2.5rem;
+            color: var(--accent);
+        }
+        
+        .test-card h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.6rem;
+        }
+        
+        .test-card p {
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+        
+        .test-stats {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(100, 255, 218, 0.05);
+            border-radius: 8px;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+        
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        
+        .btn-test {
+            padding: 15px 35px;
+            font-size: 1.1rem;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+            background: transparent;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .btn-test:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(100, 255, 218, 0.2);
+        }
+        
+        .training-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-split-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+            
+            .hero-right h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .btn-large {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .tests-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .training-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-btn {
+                text-align: center;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Social<span>Defenders</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Training Hero Section -->
+    <section class="training-hero">
+        <div class="container">
+            <div class="hero-split-layout">
+                <div class="hero-left">
+                    <a href="#tests" class="btn btn-large btn-filled">
+                        <i class="fas fa-brain"></i>
+                        Test Your Skills
+                    </a>
+                </div>
+                <div class="hero-right">
+                    <h1>Training Tests</h1>
+                    <p class="hero-subtitle">Challenge your knowledge with interactive tests on social engineering threats</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Content Section -->
+    <section class="training-content" id="tests">
+        <div class="container">
+            <h2 class="section-title">Choose Your Challenge</h2>
+            <p class="section-subtitle">Test your ability to identify and respond to different types of social engineering attacks</p>
+            
+            <div class="tests-grid">
+                <!-- Phishing Test Card -->
+                <div class="test-card">
+                    <div class="test-icon">
+                        <i class="fas fa-fish"></i>
+                    </div>
+                    <h3>Phishing Detection</h3>
+                    <p>Test your ability to identify phishing emails, texts, and websites. Learn to spot the subtle clues that distinguish legitimate communications from malicious attempts to steal your information.</p>
+                    
+                    <div class="test-stats">
+                        <div class="stat">
+                            <div class="stat-value">15</div>
+                            <div class="stat-label">Questions</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">10 min</div>
+                            <div class="stat-label">Duration</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">85%</div>
+                            <div class="stat-label">Pass Rate</div>
+                        </div>
+                    </div>
+                    
+                    <a href="phishing-test.html" class="btn-test">
+                        <i class="fas fa-play-circle"></i>
+                        Start Test
+                    </a>
+                </div>
+                
+                <!-- Deepfake Test Card -->
+                <div class="test-card">
+                    <div class="test-icon">
+                        <i class="fas fa-video"></i>
+                    </div>
+                    <h3>Deepfake Recognition</h3>
+                    <p>Challenge your ability to detect AI-generated media and synthetic identities. Learn the visual and audio cues that can help you identify manipulated videos, images, and voice recordings.</p>
+                    
+                    <div class="test-stats">
+                        <div class="stat">
+                            <div class="stat-value">12</div>
+                            <div class="stat-label">Questions</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">8 min</div>
+                            <div class="stat-label">Duration</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">72%</div>
+                            <div class="stat-label">Pass Rate</div>
+                        </div>
+                    </div>
+                    
+                    <a href="deepfake-test.html" class="btn-test">
+                        <i class="fas fa-play-circle"></i>
+                        Start Test
+                    </a>
+                </div>
+                
+                <!-- General Knowledge Test Card -->
+                <div class="test-card">
+                    <div class="test-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>General Knowledge</h3>
+                    <p>Comprehensive test covering all aspects of social engineering defense. Assess your overall understanding of attack methods, psychological principles, and protective strategies.</p>
+                    
+                    <div class="test-stats">
+                        <div class="stat">
+                            <div class="stat-value">20</div>
+                            <div class="stat-label">Questions</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">15 min</div>
+                            <div class="stat-label">Duration</div>
+                        </div>
+                        <div class="stat">
+                            <div class="stat-value">68%</div>
+                            <div class="stat-label">Pass Rate</div>
+                        </div>
+                    </div>
+                    
+                    <a href="general-test.html" class="btn-test">
+                        <i class="fas fa-play-circle"></i>
+                        Start Test
+                    </a>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 40px;">
+                <div style="background: rgba(100, 255, 218, 0.05); padding: 25px; border-radius: 8px; border-left: 4px solid var(--accent); max-width: 600px; margin: 0 auto;">
+                    <h3 style="color: var(--accent); margin-bottom: 10px;">Test Features</h3>
+                    <p style="margin-bottom: 0;">All tests include immediate feedback, detailed explanations, and personalized recommendations based on your performance.</p>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="training-nav">
+                <a href="defense-techniques.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> Previous: Defense Strategies
+                </a>
+                <a href="training.html" class="nav-btn">
+                    Back to Training <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Social Defenders</h3>
+                    <p>Advanced cybersecurity solutions for modern businesses.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> MTU, Cork, Ireland</li>
+                        <li><i class="fas fa-phone"></i> 087 123 1234</li>
+                        <li><i class="fas fa-envelope"></i> Social.defenders@mtu.ie</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Social Defenders Security. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        });
+    </script>
+</body>
+</html>

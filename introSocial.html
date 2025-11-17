@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Social Engineering | Social Defenders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+    .training-hero {
+        background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9));
+        height: 60vh;
+        display: flex;
+        align-items: center;
+        padding: 40px 0;
+    }
+    
+    .hero-split-layout {
+        display: grid;
+        grid-template-columns: 1fr 2fr;
+        gap: 60px;
+        align-items: center;
+        height: 100%;
+    }
+    
+    .hero-left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .hero-right {
+        text-align: left;
+    }
+    
+    .hero-right h1 {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+        color: white;
+        line-height: 1.1;
+    }
+    
+    .hero-subtitle {
+        font-size: 1.4rem;
+        color: var(--accent);
+        line-height: 1.5;
+        margin: 0;
+    }
+    
+    .btn-large {
+        padding: 20px 40px;
+        font-size: 1.3rem;
+        border-radius: 8px;
+    }
+    
+    .btn-large i {
+        margin-right: 10px;
+        font-size: 1.5rem;
+    }
+    
+    @media (max-width: 768px) {
+        .hero-split-layout {
+            grid-template-columns: 1fr;
+            gap: 30px;
+            text-align: center;
+        }
+        
+        .hero-right h1 {
+            font-size: 2.5rem;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.2rem;
+        }
+        
+        .btn-large {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+        }
+    }
+
+        
+        .training-content {
+            padding: 80px 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .content-card {
+            background: rgba(17, 34, 64, 0.7);
+            padding: 30px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+        
+        .content-card h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .content-placeholder {
+            background: rgba(100, 255, 218, 0.05);
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 15px;
+            border-left: 3px solid var(--accent);
+        }
+        
+        .content-placeholder p {
+            color: var(--text-light);
+            font-style: italic;
+            margin: 0;
+        }
+        
+        .training-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: translateY(-3px);
+        }
+
+        /* Image styling */
+        .content-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin: 15px 0;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .image-caption {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* Full width card for key concepts */
+        .full-width-card {
+            grid-column: 1 / -1;
+            background: rgba(17, 34, 64, 0.7);
+            padding: 30px;
+            border-radius: 8px;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .training-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-btn {
+                text-align: center;
+                justify-content: center;
+            }
+            
+            .content-image {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Social<span>Defenders</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Training Hero Section -->
+   <section class="training-hero">
+    <div class="container">
+        <div class="hero-split-layout">
+            <div class="hero-left">
+                <a href="#content" class="btn btn-large btn-filled">
+                    <i class="fas fa-play-circle"></i>
+                    Start Training
+                </a>
+            </div>
+            <div class="hero-right">
+                <h1>Introduction to Social Engineering</h1>
+                <p class="hero-subtitle">Understanding the psychology behind manipulation and deception in cybersecurity</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Training Content Section -->
+    <section class="training-content" id="content">
+        <div class="container">
+            <h2 class="section-title">Understanding Social Engineering</h2>
+            <p class="section-subtitle">Learn the fundamentals of how attackers manipulate human psychology to breach security</p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>What is Social Engineering?</h3>
+                    <p>By definition the act of deliberately making somebody believe something that is not true so that they provide personal information that may be used to cheat them.</p>
+                    <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=500" alt="Social Engineering Concept" class="content-image">
+                    <p class="image-caption">Social engineering exploits human psychology rather than technical vulnerabilities</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Historical Context</h3>
+                    <p>Social engineering tactics have been used throughout history, from the Trojan Horse to modern digital scams. Understanding this history helps us recognize patterns in contemporary attacks.</p>
+                    <img src="https://images.unsplash.com/photo-1716274644458-d30c57acdeb4?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=500" alt="Historical Deception" class="content-image">
+                    <p class="image-caption">Deception has been used as a strategy throughout human history</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Why Humans Are Vulnerable</h3>
+                    <p>Human psychology makes us susceptible to social engineering attacks. Attackers exploit cognitive biases, emotional triggers, and social norms to manipulate their targets.</p>
+                    <img src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=500" alt="Human Psychology" class="content-image">
+                    <p class="image-caption">Cognitive biases and emotional responses make us vulnerable to manipulation</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>The Impact of Social Engineering</h3>
+                    <p>Social engineering attacks can lead to significant damage for individuals and organizations. As malicious actors have a target in mind when they conduct these attacks.</p>
+                    <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=500" alt="Security Impact" class="content-image">
+                    <p class="image-caption">The consequences of successful social engineering attacks can be devastating</p>
+                </div>
+                <div class="content-card">
+                    <h3>Why its important to protect yourself from these attacks</h3>
+                    <p>It is important to protect yourself from these attacks as to ensure that no personal information is lost, business information, or financial information. An malicious actor gaining access is a great business risk</p>
+                    <img src="https://images.unsplash.com/photo-1726935018912-134f3c26313a?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470" alt="Security Impact" class="content-image">
+                    <p class="image-caption">The consequences of successful social engineering attacks can be devastating</p>
+                </div>
+                <div class="content-card">
+                    <h3>What will we cover next?</h3>
+                    <p>Your doing great, next we will cover the differnet types of attacks that involve social engineering attacks. What to watch out for, how to deal with these attacks if they occur the correct response and what risks they pose. </p>
+                    <img src="https://images.unsplash.com/photo-1599585795426-3390ee964f96?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1470" alt="Security Impact" class="content-image">
+                    <p class="image-caption">The consequences of successful social engineering attacks can be devastating</p>
+                </div>
+
+            </div>
+            
+            <div class="full-width-card">
+                <h3>Key Concepts and Terminology</h3>
+                <p>Understanding the language of social engineering is essential for recognizing and discussing these threats effectively.</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
+                    <div>
+                        <h4 style="color: var(--accent); margin-bottom: 10px;">Phishing</h4>
+                        <p>Fraudulent attempts to obtain sensitive information by disguising as a trustworthy entity.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent); margin-bottom: 10px;">Pretexting</h4>
+                        <p>Creating a fabricated scenario to engage a targeted victim.</p>
+                    </div>
+                    <div>
+                        <h4 style="color: var(--accent); margin-bottom: 10px;">Baiting</h4>
+                        <p>Offering something enticing to lure victims into a trap.</p>
+                    </div>
+                </div>
+                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=1000" alt="Cybersecurity Concepts" class="content-image" style="height: 250px; margin-top: 20px;">
+                <p class="image-caption">Understanding key terms helps in recognizing and preventing social engineering attacks</p>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="training-nav">
+                <a href="index.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> Back to Home
+                </a>
+                <a href="common-attacks.html" class="nav-btn">
+                    Next: Common Attacks <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Social Defenders</h3>
+                    <p>Advanced cybersecurity solutions for modern businesses.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> MTU, Cork, Ireland</li>
+                        <li><i class="fas fa-phone"></i> 087 123 1234</li>
+                        <li><i class="fas fa-envelope"></i> Social.defenders@mtu.ie</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Social Defenders Security. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        });
+    </script>
+</body>
+</html>

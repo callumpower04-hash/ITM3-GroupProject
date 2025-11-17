@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training | CyberShield Security</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+     <title>Deepfake Training Results</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .result-card {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #e74c3c, #c0392b);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        
+        .warning-icon {
+            font-size: 4rem;
+            margin: 20px 0;
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .result-message {
+            background-color: #ffeaea;
+            border-left: 5px solid #e74c3c;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin: 25px 0 15px;
+            font-size: 1.8rem;
+        }
+        
+        h3 {
+            color: #34495e;
+            margin: 20px 0 10px;
+            font-size: 1.4rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        ul {
+            margin: 15px 0 25px 30px;
+        }
+        
+        li {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        
+        .highlight {
+            background-color: #fff9e6;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+        }
+        
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .tip-card {
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid #3498db;
+        }
+        
+        .tip-card h3 {
+            color: #2980b9;
+            display: flex;
+            align-items: center;
+        }
+        
+        .tip-icon {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .example-section {
+            background-color: #e8f4f8;
+            border-radius: 12px;
+            padding: 25px;
+            margin: 30px 0;
+            border-left: 5px solid #3498db;
+        }
+        
+        .example {
+            background-color: white;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+        }
+        
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .retry-btn {
+            background: linear-gradient(to right, #2ecc71, #1abc9c);
+            color: white;
+        }
+        
+        .learn-btn {
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-icon {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #ecf0f1;
+            font-size: 1rem;
+            margin-top: 30px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .tips-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+     <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Social<span>Defenders</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="result-card">
+            <div class="header">
+                <div class="warning-icon">⚠️</div>
+                <h1>Training Module Failed</h1>
+                <p class="subtitle">The video you identified as real was actually a deepfake</p>
+            </div>
+            
+            <div class="content">
+                <div class="result-message">
+                    <h2>Important Notice</h2>
+                    <p>You have failed this deepfake detection training module. The video you just watched was generated using artificial intelligence and contained several indicators of manipulation. This exercise demonstrates how convincing deepfake technology has become and why it's crucial to develop critical evaluation skills.</p>
+                </div>
+                
+                <h2>How to Spot Deepfake Videos</h2>
+                <p>Deepfakes are synthetic media where a person's likeness is replaced with someone else's. Here's a detailed guide to help you identify them:</p>
+                
+                <div class="tips-grid">
+                    <div class="tip-card">
+                        <h3><span class="tip-icon">👁️</span> Visual Inconsistencies</h3>
+                        <ul>
+                            <li><span class="highlight">Unnatural eye movements</span> or lack of blinking</li>
+                            <li><span class="highlight">Poor lip-syncing</span> with audio</li>
+                            <li>Facial expressions that don't match emotional tone</li>
+                            <li>Strange lighting or shadows on the face</li>
+                            <li>Blurring around the face, hairline, or jewelry</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h3><span class="tip-icon">🔊</span> Audio Clues</h3>
+                        <ul>
+                            <li>Robotic or unnatural speech patterns</li>
+                            <li>Inconsistent audio quality</li>
+                            <li>Voice doesn't match the person's typical tone</li>
+                            <li>Background sounds that don't match the setting</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="tip-card">
+                        <h3><span class="tip-icon">🎭</span> Contextual Red Flags</h3>
+                        <ul>
+                            <li><span class="highlight">Unusual requests</span> from public figures</li>
+                            <li>Content that seems out of character for the person</li>
+                            <li>Information that contradicts known facts</li>
+                            <li>Only available on suspicious platforms</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="example-section">
+                    <h2>Common Deepfake Scenarios</h2>
+                    
+                    <div class="example">
+                        <h3>Financial Scams</h3>
+                        <p><span class="highlight">Legitimate lecturers or executives will never ask for credit card information, cryptocurrency, or wire transfers in a video.</span> If a video of a CEO, government official, or educator makes such requests, it's almost certainly a deepfake.</p>
+                    </div>
+                    
+                    <div class="example">
+                        <h3>Fake Endorsements</h3>
+                        <p>Celebrities or influencers appearing to endorse products they've never mentioned elsewhere. Always verify through official channels.</p>
+                    </div>
+                    
+                    <div class="example">
+                        <h3>Manipulated Political Statements</h3>
+                        <p>Politicians shown saying things that contradict their known positions or making outrageous claims. Check multiple reputable news sources.</p>
+                    </div>
+                </div>
+                
+                <h2>Verification Steps</h2>
+                <p>When you encounter a suspicious video, follow these steps:</p>
+                <ul>
+                    <li><span class="highlight">Pause and assess:</span> Don't react immediately to emotional content</li>
+                    <li><span class="highlight">Check the source:</span> Is this from a verified account or official channel?</li>
+                    <li><span class="highlight">Look for duplicates:</span> Search for the same video on other platforms</li>
+                    <li><span class="highlight">Verify with official statements:</span> Check the person's or organization's official website</li>
+                    <li><span class="highlight">Use fact-checking tools:</span> Websites like Snopes, Reuters Fact Check, or dedicated deepfake detection tools</li>
+                    <li><span class="highlight">Consult experts:</span> When in doubt, seek verification from trusted sources</li>
+                </ul>
+                
+                <h2>Why This Matters</h2>
+                <p>Deepfake technology is becoming increasingly sophisticated and accessible. Being able to identify manipulated media is crucial for:</p>
+                <ul>
+                    <li>Protecting yourself from financial scams</li>
+                    <li>Maintaining trust in digital information</li>
+                    <li>Preserving the integrity of public discourse</li>
+                    <li>Preventing the spread of misinformation</li>
+                </ul>
+                
+                <div class="actions">
+                    <a href="training.html" class="btn btn-filled">Retry Training </a>
+                </div>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Deepfake Awareness Training &copy; 2023 | Remember: Critical thinking is your best defense against digital manipulation</p>
+        </footer>
+    </div>
+</body>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Social Defenders</h3>
+                    <p>Protecting digital communities and promoting online safety.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📞 087 123 1234</p>
+                    <p>✉️ social.defenders@mtu.ie</p>
+                    <p>📍 MTU, Cork, Ireland</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Social Defenders. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>

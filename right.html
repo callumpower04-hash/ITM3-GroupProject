@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training | CyberShield Security</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #2ecc71);
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .result-card {
+            background-color: white;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            margin-bottom: 30px;
+        }
+        
+        .header {
+            background: linear-gradient(to right, #2ecc71, #1abc9c);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .confetti {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+        
+        .confetti-piece {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            background: #ffd700;
+            top: 0;
+            opacity: 0;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 15px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        
+        .success-icon {
+            font-size: 5rem;
+            margin: 20px 0;
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        .content {
+            padding: 40px;
+        }
+        
+        .congratulations {
+            background-color: #e8f8f5;
+            border-left: 5px solid #2ecc71;
+            padding: 25px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        h2 {
+            color: #2c3e50;
+            margin: 25px 0 15px;
+            font-size: 1.8rem;
+        }
+        
+        h3 {
+            color: #34495e;
+            margin: 20px 0 10px;
+            font-size: 1.4rem;
+        }
+        
+        p {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+        
+        ul {
+            margin: 15px 0 25px 30px;
+        }
+        
+        li {
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+        
+        .highlight {
+            background-color: #e8f8f5;
+            padding: 3px 6px;
+            border-radius: 4px;
+            font-weight: 600;
+            color: #27ae60;
+        }
+        
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+        
+        .skill-card {
+            background-color: #f8f9fa;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 4px solid #3498db;
+            transition: transform 0.3s ease;
+        }
+        
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skill-card h3 {
+            color: #2980b9;
+            display: flex;
+            align-items: center;
+        }
+        
+        .skill-icon {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .certificate-section {
+            background: linear-gradient(to right, #fef9e7, #fcf3cf);
+            border-radius: 12px;
+            padding: 30px;
+            margin: 30px 0;
+            text-align: center;
+            border: 2px dashed #f1c40f;
+        }
+        
+        .certificate-title {
+            font-size: 2rem;
+            color: #d35400;
+            margin-bottom: 15px;
+        }
+        
+        .certificate-details {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 20px 0;
+        }
+        
+        .detail-item {
+            margin: 10px;
+        }
+        
+        .detail-label {
+            font-weight: bold;
+            color: #7d6608;
+        }
+        
+        .badge {
+            display: inline-block;
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 50px;
+            font-weight: bold;
+            margin: 5px;
+        }
+        
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .share-btn {
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: white;
+        }
+        
+        .continue-btn {
+            background: linear-gradient(to right, #2ecc71, #1abc9c);
+            color: white;
+        }
+        
+        .btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .btn-icon {
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 25px;
+            color: #ecf0f1;
+            font-size: 1rem;
+            margin-top: 30px;
+        }
+        
+        .progress-container {
+            background-color: #ecf0f1;
+            border-radius: 10px;
+            height: 20px;
+            margin: 20px 0;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, #2ecc71, #1abc9c);
+            width: 100%;
+            border-radius: 10px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .content {
+                padding: 25px;
+            }
+            
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .actions {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .certificate-details {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+     <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Social<span>Defenders</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="result-card">
+            <div class="header">
+                <div class="confetti" id="confettiContainer"></div>
+                <div class="success-icon">🎉</div>
+                <h1>Training Completed Successfully!</h1>
+                <p class="subtitle">Congratulations! You correctly identified the deepfake video</p>
+            </div>
+            
+            <div class="content">
+                <div class="congratulations">
+                    <h2>Excellent Work!</h2>
+                    <p>You've successfully completed the Deepfake Detection Training and demonstrated your ability to identify AI-generated content. Your attention to detail and critical thinking skills have paid off!</p>
+                </div>
+                
+                <div class="progress-container">
+                    <div class="progress-bar"></div>
+                </div>
+                <p style="text-align: center; font-weight: bold;">Training Progress: 100% Complete</p>
+                
+                <h2>Skills You've Mastered</h2>
+                <p>Throughout this training, you've developed essential skills for identifying manipulated media:</p>
+                
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3><span class="skill-icon">👁️</span> Visual Analysis</h3>
+                        <ul>
+                            <li>Spotting unnatural facial movements</li>
+                            <li>Identifying inconsistent lighting</li>
+                            <li>Recognizing poor lip-syncing</li>
+                            <li>Noticing blurring artifacts</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3><span class="skill-icon">🔍</span> Contextual Evaluation</h3>
+                        <ul>
+                            <li>Assessing the credibility of requests</li>
+                            <li>Recognizing out-of-character behavior</li>
+                            <li>Identifying financial scam patterns</li>
+                            <li>Understanding that <span class="highlight">legitimate sources won't ask for sensitive information</span></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="skill-card">
+                        <h3><span class="skill-icon">🧠</span> Critical Thinking</h3>
+                        <ul>
+                            <li>Questioning suspicious content</li>
+                            <li>Verifying information through multiple sources</li>
+                            <li>Resisting emotional manipulation</li>
+                            <li>Applying logical reasoning to media evaluation</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="certificate-section">
+                    <div class="certificate-title">Deepfake Detection Certificate</div>
+                    <p>This certifies that you have successfully completed the Deepfake Awareness Training and demonstrated proficiency in identifying AI-generated media.</p>
+                    
+                    <div class="certificate-details">
+                        <div class="detail-item">
+                            <div class="detail-label">Date Completed:</div>
+                            <div>October 15, 2023</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Score:</div>
+                            <div>100%</div>
+                        </div>
+                        <div class="detail-item">
+                            <div class="detail-label">Level Achieved:</div>
+                            <div>Expert Detector</div>
+                        </div>
+                    </div>
+                    
+                    <div style="margin: 20px 0;">
+                        <span class="badge">Visual Analysis Expert</span>
+                        <span class="badge">Contextual Evaluation</span>
+                        <span class="badge">Critical Thinking</span>
+                    </div>
+                </div>
+                
+                <h2>Key Takeaways</h2>
+                <p>Remember these essential principles when evaluating media in the future:</p>
+                <ul>
+                    <li><span class="highlight">Legitimate educators, executives, and public figures will never ask for credit card information or financial transfers in videos</span></li>
+                    <li>Always verify unusual requests through official channels</li>
+                    <li>Pay attention to visual inconsistencies like unnatural eye movements or poor lip-syncing</li>
+                    <li>Consider the context - does the content match the person's known positions and behavior?</li>
+                    <li>Use multiple verification sources before believing or sharing questionable content</li>
+                </ul>
+                
+                <h2>Continuing Your Education</h2>
+                <p>Deepfake technology continues to evolve. Stay vigilant by:</p>
+                <ul>
+                    <li>Following reputable cybersecurity news sources</li>
+                    <li>Participating in updated training modules</li>
+                    <li>Sharing your knowledge with friends and colleagues</li>
+                    <li>Practicing critical evaluation of all digital media</li>
+                </ul>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Deepfake Awareness Training &copy; 2023 | Your vigilance helps protect our digital ecosystem</p>
+        </footer>
+    </div>
+
+    <script>
+        // Create confetti effect
+        document.addEventListener('DOMContentLoaded', function() {
+            const confettiContainer = document.getElementById('confettiContainer');
+            const colors = ['#ffd700', '#ff6b6b', '#48dbfb', '#1dd1a1', '#f368e0'];
+            
+            for (let i = 0; i < 50; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti-piece');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                confetti.style.animationDuration = (Math.random() * 3 + 3) + 's';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
+                confettiContainer.appendChild(confetti);
+            }
+        });
+    </script> 
+
+</body>
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Social Defenders</h3>
+                    <p>Protecting digital communities and promoting online safety.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📞 087 123 1234</p>
+                    <p>✉️ social.defenders@mtu.ie</p>
+                    <p>📍 MTU, Cork, Ireland</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Social Defenders. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>

@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Common Social Engineering Attacks | Social Defenders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Additional styles for training pages */
+        .training-hero {
+            background: linear-gradient(rgba(10, 25, 47, 0.9), rgba(10, 25, 47, 0.9));
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            padding: 40px 0;
+        }
+        
+        .hero-split-layout {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 60px;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .hero-left {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .hero-right {
+            text-align: left;
+        }
+        
+        .hero-right h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+            line-height: 1.1;
+        }
+        
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--accent);
+            line-height: 1.5;
+            margin: 0;
+        }
+        
+        .btn-large {
+            padding: 20px 40px;
+            font-size: 1.3rem;
+            border-radius: 8px;
+        }
+        
+        .btn-large i {
+            margin-right: 10px;
+            font-size: 1.5rem;
+        }
+        
+        .training-content {
+            padding: 80px 0;
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 50px 0;
+        }
+        
+        .content-card {
+            background: rgba(17, 34, 64, 0.7);
+            padding: 30px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--accent);
+        }
+        
+        .content-card h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .attack-type {
+            color: #64ffda;
+            font-weight: bold;
+            margin: 15px 0 5px;
+        }
+        
+        .attack-description {
+            background: rgba(100, 255, 218, 0.05);
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            border-left: 3px solid var(--accent);
+            font-style: italic;
+        }
+        
+        .content-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin: 15px 0;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .image-caption {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        
+        .training-nav {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(100, 255, 218, 0.2);
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 25px;
+            background: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(100, 255, 218, 0.1);
+            transform: translateY(-3px);
+        }
+        
+        @media (max-width: 768px) {
+            .hero-split-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                text-align: center;
+            }
+            
+            .hero-right h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .btn-large {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+            
+            .training-nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-btn {
+                text-align: center;
+                justify-content: center;
+            }
+            
+            .content-image {
+                height: 150px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Social<span>Defenders</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Training Hero Section -->
+    <section class="training-hero">
+        <div class="container">
+            <div class="hero-split-layout">
+                <div class="hero-left">
+                    <a href="#content" class="btn btn-large btn-filled">
+                        <i class="fas fa-shield-alt"></i>
+                        Learn Defense
+                    </a>
+                </div>
+                <div class="hero-right">
+                    <h1>Common Social Engineering Attacks</h1>
+                    <p class="hero-subtitle">Understanding the most prevalent manipulation techniques used by attackers</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Training Content Section -->
+    <section class="training-content" id="content">
+        <div class="container">
+            <h2 class="section-title">Types of Social Engineering Attacks</h2>
+            <p class="section-subtitle">Learn to recognize and defend against the most common social engineering tactics</p>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <h3>Phishing Attacks</h3>
+                    <p>Phishing attacks are digital or voice messages that try to manipulate recipients into sharing sensitive information, downloading malicious software, transferring money or assets to the wrong people or taking some other damaging actions.</p>
+                    
+                    <div class="attack-description">
+                        <p>"Phishing attacks are digital or voice messages that try to manipulate recipients into sharing sensitive information, downloading malicious software, transferring money or assets to the wrong people or taking some other damaging actions" – IBM</p>
+                    </div>
+                    
+                    <img src="https://images.unsplash.com/photo-1611606063065-ee7946f0787a?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=500" alt="Phishing Attack" class="content-image">
+                    <p class="image-caption">Phishing emails often mimic legitimate communications to trick victims</p>
+                    
+                    <div class="attack-type">Spear Phishing</div>
+                    <p>An attacker researches their target, via LinkedIn, social media, internal workplace, to create personalised messages that look far more credible and legitimate than random mass emails. This has a higher success rate than generic phishing.</p>
+                    
+                    <div class="attack-type">Whale Phishing</div>
+                    <p>An attacker targets high level executives or officials, hoping to steal critical information. Attackers usually spend long periods of time researching their victim before launching the attack. A whaling attack typically involves the threat actor impersonating another colleague within the organisation, requesting sensitive information, data or actions from their target. Because whaling attacks target individuals in positions of high rank or power, they often result in a larger payout for the attacker.</p>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Baiting</h3>
+                    <p>Baiting is a social engineering attack where the attacker offers something tempting, the "bait"; for example, free software, a prize or access to exclusive content, to lure a victim into taking an unsafe action, such as downloading malware, sharing credentials or using a malicious device.</p>
+                    
+                    <div class="attack-description">
+                        <p>Baiting is a SE attack where the attacker offers something tempting, the "bait"; for example, free software, a prize or access to exclusive content, to lure a victim into taking an unsafe action, such as downloading malware, sharing credentials or using a malicious device.</p>
+                    </div>
+                    
+                    <img src="https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.1.0&auto=format&fit=crop&q=80&w=500" alt="Baiting Attack" class="content-image">
+                    <p class="image-caption">Baiting exploits human curiosity, greed or the desire for rewards</p>
+                    
+                    <p>It exploits human curiosity, greed or the desire for rewards. Baiting is often likened to a Trojan horse in social form as the victim voluntarily brings in the malicious content.</p>
+                    
+                    </div>
+                </div>
+                
+                <div class="content-card">
+                    <h3>Pretexting</h3>
+                    <p>Pretexting is a targeted social engineering technique where an attacker constructs a believable backstory and impersonates a trusted role, e.g. tech support/senior manager, to persuade a target to reveal confidential information or perform insecure actions.</p>
+                    
+                    <div class="attack-description">
+                        <p>Pretexting is a targeted SE technique where an attacker constructs a believable backstory and impersonates a trusted role, e.g. tech support/senior manager, to persuade a target to reveal confidential information or perform insecure actions.</p>
+                    </div>
+                    
+                    <img src="https://plus.unsplash.com/premium_photo-1661963953739-93cc36583355?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1113" alt="Pretexting Attack" class="content-image">
+                    <p class="image-caption">Pretexting relies on creating a convincing false scenario</p>
+                    
+                    <p>The attacker creates a fabricated scenario (the pretext) to engage a targeted victim in a way that increases the chance the victim will divulge information or perform actions they wouldn't under ordinary circumstances.</p>
+                    
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation -->
+            <div class="training-nav">
+                <a href="introduction.html" class="nav-btn">
+                    <i class="fas fa-arrow-left"></i> Previous: Introduction
+                </a>
+                <a href="defense-strategies.html" class="nav-btn">
+                    Next: Defense Techniques <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Social Defenders</h3>
+                    <p>Advanced cybersecurity solutions for modern businesses.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="training.html">Training</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> MTU, Cork, Ireland</li>
+                        <li><i class="fas fa-phone"></i> 087 123 1234</li>
+                        <li><i class="fas fa-envelope"></i> Social.defenders@mtu.ie</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Social Defenders Security. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        document.querySelector('.mobile-menu').addEventListener('click', function() {
+            const nav = document.querySelector('nav');
+            nav.style.display = nav.style.display === 'block' ? 'none' : 'block';
+        });
+    </script>
+</body>
+</html>
