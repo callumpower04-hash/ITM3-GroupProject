@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training | Social Defenders</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="index.html" class="logo">Social<span>Defenders</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- Page Content -->
+    <div class="page-content">
+        <section class="training">
+            <div class="container">
+                <h1 class="section-title">Security Training Programs</h1>
+                <p class="section-subtitle">Empower your team with the knowledge and skills to protect your organization from cyber threats.</p>
+                
+                <div class="quiz-container">
+                    <div class="quiz-header">
+                        <h2>Social Engineering Knowledge Assessment</h2>
+                        <p>Test your understanding of social engineering tactics and prevention methods</p>
+                    </div>
+                    
+                    <div class="progress-bar">
+                        <div class="progress" id="progress"></div>
+                    </div>
+                    
+                    <div id="question-container">
+                        <!-- Questions will be dynamically inserted here -->
+                    </div>
+                    
+                    <div class="quiz-controls">
+                        <button class="btn btn-prev" id="prev-btn">Previous</button>
+                        <button class="btn btn-next" id="next-btn">Next</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Social Defenders</h3>
+                    <p>Protecting digital communities and promoting online safety.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <p>📞 087 123 1234</p>
+                    <p>✉️ social.defenders@mtu.ie</p>
+                    <p>📍 MTU, Cork, Ireland</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 Social Defenders. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Quiz questions data
+        const quizData = [
+            {
+                question: "What is the primary goal of social engineering attacks?",
+                options: [
+                    "To directly infect systems with malware",
+                    "To manipulate people into revealing confidential information",
+                    "To overload network resources with traffic",
+                    "To physically damage computer hardware"
+                ],
+                correct: 1,
+                explanation: "Social engineering attacks primarily aim to manipulate individuals into divulging confidential information or performing actions that compromise security, rather than directly attacking technical systems."
+            },
+            {
+                question: "Which of the following is a common characteristic of phishing emails?",
+                options: [
+                    "They always come from unknown senders",
+                    "They use perfect grammar and spelling",
+                    "They create a sense of urgency",
+                    "They never include links or attachments"
+                ],
+                correct: 2,
+                explanation: "Phishing emails often create a sense of urgency to pressure recipients into acting quickly without proper scrutiny, such as claiming an account will be closed or a limited-time offer is available."
+            },
+            {
+                question: "What is 'pretexting' in social engineering?",
+                options: [
+                    "Creating a fake scenario to obtain information",
+                    "Sending malicious software through email",
+                    "Intercepting communications between two parties",
+                    "Guessing passwords through trial and error"
+                ],
+                correct: 0,
+                explanation: "Pretexting involves creating a fabricated scenario or pretext to engage a target and obtain their personal information. The attacker usually impersonates someone with a right to know the information."
+            },
+            {
+                question: "Which of these is the best defense against social engineering?",
+                options: [
+                    "Using complex passwords",
+                    "Keeping software updated",
+                    "Security awareness training",
+                    "Installing a firewall"
+                ],
+                correct: 2,
+                explanation: "While all options improve security, security awareness training is the most effective defense against social engineering because it teaches individuals to recognize and resist manipulation attempts."
+            },
+            {
+                question: "What should you do if you receive a suspicious email requesting sensitive information?",
+                options: [
+                    "Reply to verify the sender's identity",
+                    "Forward it to colleagues to warn them",
+                    "Contact the organization directly using a verified phone number",
+                    "Ignore it and delete immediately"
+                ],
+                correct: 2,
+                explanation: "The safest approach is to contact the organization directly using a phone number or email address from their official website (not from the suspicious email) to verify the request's legitimacy."
+            },
+            {
+                question: "What is 'tailgating' in physical security social engineering?",
+                options: [
+                    "Following someone too closely in traffic",
+                    "Gaining unauthorized physical access by following an authorized person",
+                    "Sending repeated emails to harass someone",
+                    "Creating fake social media profiles"
+                ],
+                correct: 1,
+                explanation: "Tailgating, or piggybacking, is a physical social engineering technique where an unauthorized person follows an authorized person into a restricted area without proper authentication."
+            },
+            {
+                question: "Why do social engineers often use the principle of authority?",
+                options: [
+                    "Because it makes their requests legally binding",
+                    "Because people are more likely to comply with perceived authority figures",
+                    "Because it automatically bypasses security systems",
+                    "Because it requires less technical knowledge"
+                ],
+                correct: 1,
+                explanation: "Social engineers exploit the human tendency to comply with authority figures, as people are generally conditioned to follow instructions from those perceived to be in positions of power or expertise."
+            },
+            {
+                question: "What is a 'waterholing' attack?",
+                options: [
+                    "Poisoning a water supply with malware",
+                    "Compromising websites frequently visited by a target group",
+                    "Spraying water on computer equipment to cause damage",
+                    "Sending emails with water-themed attachments"
+                ],
+                correct: 1,
+                explanation: "A waterholing attack involves compromising websites that a specific target group frequently visits, then infecting those sites with malware that will be delivered to the visitors."
+            },
+            {
+                question: "Which psychological principle does 'reciprocity' exploit in social engineering?",
+                options: [
+                    "The tendency to return favors",
+                    "The fear of missing out",
+                    "The desire for social validation",
+                    "The obedience to authority"
+                ],
+                correct: 0,
+                explanation: "Reciprocity exploits the human tendency to feel obligated to return favors. Social engineers might offer something small (like free information) to create a sense of indebtedness."
+            },
+            {
+                question: "What is the primary difference between phishing and spear phishing?",
+                options: [
+                    "Spear phishing uses email while phishing uses phone calls",
+                    "Phishing targets individuals while spear phishing targets organizations",
+                    "Spear phishing is more targeted and personalized",
+                    "Phishing is legal while spear phishing is illegal"
+                ],
+                correct: 2,
+                explanation: "Spear phishing is a more targeted version of phishing where attackers customize their messages for specific individuals or organizations, using personal information to increase credibility."
+            }
+        ];
+
+        // DOM Elements
+        const questionContainer = document.getElementById('question-container');
+        const progressBar = document.getElementById('progress');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        // Quiz state
+        let currentQuestion = 0;
+        let userAnswers = new Array(quizData.length).fill(null);
+        let quizCompleted = false;
+
+        // Initialize quiz
+        function initQuiz() {
+            showQuestion();
+            updateProgressBar();
+            updateButtons();
+        }
+
+        // Display current question
+        function showQuestion() {
+            const question = quizData[currentQuestion];
+            
+            let optionsHTML = '';
+            question.options.forEach((option, index) => {
+                const isSelected = userAnswers[currentQuestion] === index;
+                optionsHTML += `
+                    <div class="option ${isSelected ? 'selected' : ''}" data-index="${index}">
+                        ${option}
+                    </div>
+                `;
+            });
+            
+            questionContainer.innerHTML = `
+                <div class="question-container">
+                    <div class="question-number">Question ${currentQuestion + 1} of ${quizData.length}</div>
+                    <div class="question-text">${question.question}</div>
+                    <div class="options-container">
+                        ${optionsHTML}
+                    </div>
+                </div>
+            `;
+            
+            // Add event listeners to options
+            document.querySelectorAll('.option').forEach(option => {
+                option.addEventListener('click', () => {
+                    const selectedIndex = parseInt(option.getAttribute('data-index'));
+                    userAnswers[currentQuestion] = selectedIndex;
+                    showQuestion(); // Refresh to show selection
+                });
+            });
+        }
+
+        // Update progress bar
+        function updateProgressBar() {
+            const progress = ((currentQuestion + 1) / quizData.length) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+
+        // Update button states
+        function updateButtons() {
+            prevBtn.disabled = currentQuestion === 0;
+            
+            if (currentQuestion === quizData.length - 1) {
+                nextBtn.textContent = 'Submit';
+                nextBtn.className = 'btn btn-submit';
+            } else {
+                nextBtn.textContent = 'Next';
+                nextBtn.className = 'btn btn-next';
+            }
+        }
+
+        // Show results
+        function showResults() {
+            let score = 0;
+            let feedbackHTML = '';
+            
+            quizData.forEach((question, index) => {
+                const userAnswer = userAnswers[index];
+                const isCorrect = userAnswer === question.correct;
+                
+                if (isCorrect) {
+                    score++;
+                }
+                
+                feedbackHTML += `
+                    <div class="feedback-item">
+                        <div class="feedback-question">${index + 1}. ${question.question}</div>
+                        <div class="feedback-answer">Your answer: ${userAnswer !== null ? question.options[userAnswer] : 'Not answered'} ${isCorrect ? '✓' : '✗'}</div>
+                        ${!isCorrect ? `<div class="feedback-answer">Correct answer: ${question.options[question.correct]}</div>` : ''}
+                        <div class="feedback-explanation">${question.explanation}</div>
+                    </div>
+                `;
+            });
+            
+            const percentage = Math.round((score / quizData.length) * 100);
+            let message = '';
+            
+            if (percentage >= 90) {
+                message = 'Excellent! You have a strong understanding of social engineering concepts.';
+            } else if (percentage >= 70) {
+                message = 'Good job! You have a solid foundation but there is room for improvement.';
+            } else if (percentage >= 50) {
+                message = 'You have basic knowledge but should focus more on social engineering awareness.';
+            } else {
+                message = 'Consider additional training on social engineering to better protect yourself and your organization.';
+            }
+            
+            questionContainer.innerHTML = `
+                <div class="results-container">
+                    <h2>Quiz Completed!</h2>
+                    <div class="score">${percentage}%</div>
+                    <div class="score-text">You scored ${score} out of ${quizData.length}</div>
+                    <p>${message}</p>
+                    
+                    <div class="feedback">
+                        <h3>Review Your Answers</h3>
+                        ${feedbackHTML}
+                    </div>
+                    
+                    <button class="btn btn-submit" onclick="location.reload()" style="margin-top: 2rem;">Retake Quiz</button>
+                </div>
+            `;
+            
+            // Hide progress bar and buttons
+            progressBar.style.display = 'none';
+            prevBtn.style.display = 'none';
+            nextBtn.style.display = 'none';
+        }
+
+        // Event listeners
+        prevBtn.addEventListener('click', () => {
+            if (currentQuestion > 0) {
+                currentQuestion--;
+                showQuestion();
+                updateProgressBar();
+                updateButtons();
+            }
+        });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentQuestion < quizData.length - 1) {
+                currentQuestion++;
+                showQuestion();
+                updateProgressBar();
+                updateButtons();
+            } else {
+                // Submit quiz
+                showResults();
+            }
+        });
+
+        // Initialize the quiz
+        initQuiz();
+    </script>
+</body>
+</html>
