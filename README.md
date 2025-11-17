@@ -69,7 +69,7 @@ Includes:
 
 ---
 
-## 🎥 Interactive Deepfake Training Module (Proof of Concept)
+## Interactive Deepfake Training Module (Proof of Concept)
 
 ###  Deepfake Detection Training  
 _File: `learn.html` + `deep.mp4`_
@@ -94,11 +94,11 @@ Includes:
 - Certificate-style achievement section  
 - Mastered skills breakdown
 
-### `wrong.html` — (You may add similar fail screen later)
+### `wrong.html` — (possible add on if user fails)
 
 ---
 
-## 🧪 Training Test Hub
+## Training Test Hub
 
 _File: `training-section.html`_
 
